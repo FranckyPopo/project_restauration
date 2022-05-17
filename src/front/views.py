@@ -11,7 +11,6 @@ from .models import (
 )
 
 def fean_index(request):
-
     data = {
         "sliders": SliderIndex.objects.all(),
         "background_image": BackgroundImageIndex.objects.first(),
@@ -24,7 +23,7 @@ def fean_index(request):
     return render(request, "front/index.html", context=data)
     
 def fean_about(request):
-    return render(request, "front/about.html")
+    return render(request, "front/about.html", context={"about": AboutIndex.objects.first()})
     
     
 def fean_menu(request):
