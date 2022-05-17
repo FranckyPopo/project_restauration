@@ -7,16 +7,18 @@ from .models import (
     AvisClient, 
     ContactUs,
     LinkReseau,
+    Sold,
     
 )
 
 def fean_index(request):
     data = {
         "sliders": SliderIndex.objects.all(),
-        "background_image": BackgroundImageIndex.objects.first(),
         "menus": AddMenu.objects.all(),
-        "about": AboutIndex.objects.first(),
         "list_avis": AvisClient.objects.all(),
+        "solds": Sold.objects.all(),
+        "background_image": BackgroundImageIndex.objects.first(),
+        "about": AboutIndex.objects.first(),
         "contact_us": ContactUs.objects.first(),
         "link_reseau": LinkReseau.objects.first(),
     }

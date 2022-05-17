@@ -16,9 +16,6 @@ class BackgroundImageIndex(models.Model):
     background_image = models.ImageField()
     date_create = models.DateTimeField(default=timezone.now())
 
-class BestMenu(models.Model):
-    pass
-
 class AddMenu(models.Model):
     foods = [
         ("burger", "burger"),
@@ -76,5 +73,20 @@ class LinkReseau(models.Model):
     pinterest = models.URLField()
     date_create = models.DateTimeField(default=timezone.now())
     
+
+class Sold(models.Model):
+    days = [
+        ("Pizza day", "Pizza day"),
+        ("Burger day", "Burger day"),
+        ("Pasta day", "Pasta day"),
+        ("Fries day", "Fries day"),
+    ]
     
+    menu_sold = models.ForeignKey(AddMenu, on_delete=models.CASCADE)
+    day_special = models.CharField(max_length=25, choices=days)
+    reduction = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
+    date_create = models.DateTimeField(default=timezone.now())
+    
+    def __str__(self):
+        return str(self.menu_sold)
 
