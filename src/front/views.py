@@ -5,7 +5,9 @@ from .models import (
     AboutIndex,
     BackgroundImageIndex, 
     AvisClient, 
-    ContactUs
+    ContactUs,
+    LinkReseau,
+    
 )
 
 def fean_index(request):
@@ -17,6 +19,7 @@ def fean_index(request):
         "about": AboutIndex.objects.first(),
         "list_avis": AvisClient.objects.all(),
         "contact_us": ContactUs.objects.first(),
+        "link_reseau": LinkReseau.objects.first(),
         
     }
     return render(request, "front/index.html", context=data)

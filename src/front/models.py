@@ -66,3 +66,4 @@ class LinkReseau(models.Model):
     linkedin = models.URLField()
     instagram = models.URLField()
     pinterest = models.URLField()
+    date_create = models.DateTimeField(default=timezone.now())
