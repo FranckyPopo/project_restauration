@@ -20,10 +20,18 @@ class BestMenu(models.Model):
     pass
 
 class AddMenu(models.Model):
+    foods = [
+        ("burger", "burger"),
+        ("pizza", "pizza"),
+        ("pasta", "pasta"),
+        ("fries", "fries"),
+    ]
+    
     menu_image = models.ImageField()
     title = models.CharField(max_length=25)
     description = models.CharField(max_length=250)
     price = models.CharField(max_length=150)
+    type_food = models.CharField(choices=foods, max_length=10, default="Burger")
     date_create = models.DateTimeField(default=timezone.now())
     
     def __str__(self):
@@ -67,3 +75,6 @@ class LinkReseau(models.Model):
     instagram = models.URLField()
     pinterest = models.URLField()
     date_create = models.DateTimeField(default=timezone.now())
+    
+    
+

@@ -382,9 +382,8 @@
       <div class="filters-content">
         <div class="row grid">
           {% for menu in menus %}
-            <div class="col-sm-6 col-lg-4 all burger">
-              <div class="box">
-                <div>
+            <div class="col-sm-6 col-lg-4 all {{ menu.type_food }}">
+                <div class="box"><div>
                   <div class="img-box">
                     <img src="{{ menu.menu_image.url }}" alt="">
                   </div>
