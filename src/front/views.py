@@ -1,5 +1,12 @@
 from django.shortcuts import render
-from .models import SliderIndex, AddMenu, AboutIndex, BackgroundImageIndex, AvisClient
+from .models import (
+    SliderIndex, 
+    AddMenu, 
+    AboutIndex,
+    BackgroundImageIndex, 
+    AvisClient, 
+    ContactUs
+)
 
 def fean_index(request):
 
@@ -9,6 +16,7 @@ def fean_index(request):
         "menus": AddMenu.objects.all(),
         "about": AboutIndex.objects.first(),
         "list_avis": AvisClient.objects.all(),
+        "contact_us": ContactUs.objects.first(),
         
     }
     return render(request, "front/index.html", context=data)

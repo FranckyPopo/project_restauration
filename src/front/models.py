@@ -55,7 +55,7 @@ class AvisClient(models.Model):
         return self.name_client
     
 class ContactUs(models.Model):
-    message = models.CharField(max_length=250)
+    location = models.URLField()
     number_phone = PhoneNumberField()
     email = models.EmailField(max_length=150)
     date_create = models.DateTimeField(default=timezone.now())
