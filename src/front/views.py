@@ -20,7 +20,6 @@ def fean_index(request):
         "list_avis": AvisClient.objects.all(),
         "contact_us": ContactUs.objects.first(),
         "link_reseau": LinkReseau.objects.first(),
-        
     }
     return render(request, "front/index.html", context=data)
     
@@ -29,10 +28,10 @@ def fean_about(request):
     
     
 def fean_menu(request):
-    return render(request, "front/menu.html")
+    menus = AddMenu.objects.all()
+    return render(request, "front/menu.html", context={"menus": menus})
     
     
 def fean_book(request):
     return render(request, "front/book.html")
-    
     
