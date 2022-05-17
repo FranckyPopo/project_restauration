@@ -46,9 +46,13 @@ class BookTable(models.Model):
     date_create = models.DateTimeField(default=timezone.now())
 
 class AvisClient(models.Model):    
+    photo_client = models.ImageField()
     name_client = models.CharField(max_length=150)
     message = models.CharField(max_length=250)
     date_create = models.DateTimeField(default=timezone.now())
+    
+    def __str__(self) -> str:
+        return self.name_client
     
 class ContactUs(models.Model):
     message = models.CharField(max_length=250)
