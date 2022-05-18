@@ -4,7 +4,6 @@ from .models import *
 models = [
     SliderIndex, 
     BackgroundImageIndex, 
-    BestMenu, 
     AboutIndex, 
     BookTable, 
     AvisClient, 
