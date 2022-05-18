@@ -12,7 +12,7 @@ from .models import (
 )
 
 def fean_index(request):
-    data = {
+    datas = {
         "sliders": SliderIndex.objects.all(),
         "menus": AddMenu.objects.all(),
         "list_avis": AvisClient.objects.all(),
@@ -22,17 +22,25 @@ def fean_index(request):
         "contact_us": ContactUs.objects.first(),
         "link_reseau": LinkReseau.objects.first(),
     }
-    return render(request, "front/pages/index.html", context=data)
+    return render(request, "front/pages/index.html", context=datas)
    
     
 def fean_about(request):
-    return render(request, "front/pages/about.html", context={"about": AboutIndex.objects.first()})
+    datas = {
+        "about": AboutIndex.objects.first(),
+        "background_image": BackgroundImageIndex.objects.first(),
+    }
+    return render(request, "front/pages/about.html", context=datas)
     
     
 def fean_menu(request):
-    return render(request, "front/pages/menu.html", context={"menus": AddMenu.objects.all()})
+    datas = {
+        "menus": AddMenu.objects.all(),
+        "background_image": BackgroundImageIndex.objects.first(),
+    }
+    return render(request, "front/pages/menu.html", context=datas)
     
     
 def fean_book(request):
-    return render(request, "front/pages/book.html")
+    return render(request, "front/pages/book.html", context={"background_image": BackgroundImageIndex.objects.first()})
     
