@@ -82,7 +82,7 @@ class Sold(models.Model):
         ("Fries day", "Fries day"),
     ]
     
-    menu_sold = models.ForeignKey(AddMenu, on_delete=models.CASCADE)
+    menu_sold = models.ForeignKey(AddMenu, on_delete=models.CASCADE, related_name="sold_name")
     day_special = models.CharField(max_length=25, choices=days)
     reduction = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
     date_create = models.DateTimeField(default=timezone.now())

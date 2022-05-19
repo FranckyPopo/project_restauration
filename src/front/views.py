@@ -23,7 +23,7 @@ def fean_index(request):
         "link_reseau": LinkReseau.objects.first(),
     }
     return render(request, "front/pages/index.html", context=datas)
-   
+
     
 def fean_about(request):
     datas = {
